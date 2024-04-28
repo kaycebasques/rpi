@@ -46,6 +46,12 @@ rpi os version: bookworm
 
 `Menu`
 
+### chromium shortcuts
+
+#### close tab
+
+`Ctrl`+`W`
+
 ## cli
 
 ### find what os is running
