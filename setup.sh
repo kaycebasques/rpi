@@ -22,6 +22,8 @@ if [ ! -f ~/.ssh/ed25519.pub ]; then
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_ed25519
 fi
-
 cat ~/.ssh/id_ed25519.pub
 echo "add key to https://github.com/settings/ssh/new"
+
+git remote remove origin
+git remote add origin git@github.com:kaycebasques/rpi.git
