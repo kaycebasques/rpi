@@ -1,5 +1,13 @@
 # rpi
 
+## setup
+
+```
+git clone https://github.com/kaycebasques/rpi.git
+cd rpi
+source setup.sh
+```
+
 ## keyboard shortcuts
 
 rpi os version: bookworm
