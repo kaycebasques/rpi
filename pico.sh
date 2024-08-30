@@ -1,20 +1,14 @@
 #!/bin/bash
 
-# Exit on error
-set -e
-
-if grep -q Raspberry /proc/cpuinfo; then
-    echo "Running on a Raspberry Pi"
-else
-    echo "Not running on a Raspberry Pi. Use at your own risk!"
-    SKIP_UART=1
-fi
+# modified from pico_setup.sh
+# https://github.com/raspberrypi/pico-setup/blob/4567073441c6ef298988baf49a8700f507c3b5a0/pico_setup.sh
 
 # Number of cores when running make
 JNUM=4
 
 # Where will the output go?
-OUTDIR="~/pico"
+OUTDIR="$HOME/pico"
+echo $OUTDIR
 
 # Install dependencies
 GIT_DEPS="git"
@@ -130,7 +124,9 @@ if [[ "$SKIP_UART" == 1 ]]; then
     echo "Skipping uart configuration"
 else
     sudo apt install -y $UART_DEPS
-    echo "Disabling Linux serial console (UART) so we can use it for pico"
-    sudo raspi-config nonint do_serial 2
-    echo "You must run sudo reboot to finish UART setup"
+    # echo "Disabling Linux serial console (UART) so we can use it for pico"
+    # sudo raspi-config nonint do_serial 2
+    # echo "You must run sudo reboot to finish UART setup"
 fi
+
+echo "Should probably reboot now..."
